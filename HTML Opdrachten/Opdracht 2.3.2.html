@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dieren Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        nav a, footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        main {
+            text-align: center;
+            padding: 70px 0;
+        }
+        img {
+            width: 500px;
+            height: 500px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#ijsbeer">Ijsbeer</a>
+        <a href="#leeuw">Leeuw</a>
+        <a href="#olifant">Olifant</a>
+        <a href="#tijger">Tijger</a>
+        <a href="#pinguin">Pinguïn</a>
+    </nav>
+
+    <main>
+        <img src="https://storage.googleapis.com/oceanwide_web/media-dynamic/cache/widen_1600/media/default/0001/07/af91466c86557ee94b5cbc0cec2ef1ac5cbff78e.jpeg" alt="Ijsbeer" id="ijsbeer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/African_Lion_Panthera_leo_Male_Pittsburgh_2800px.jpg/640px-African_Lion_Panthera_leo_Male_Pittsburgh_2800px.jpg" alt="Leeuw" id="leeuw">
+        <img src="https://d1jyxxz9imt9yb.cloudfront.net/article/7592/meta_image/regular/TS483-S-S.JPG" alt="Olifant" id="olifant">
+        <img src="https://www.natgeojunior.nl/wp-content/uploads/2017/07/Tijger2.jpg" alt="Tijger" id="tijger">
+        <img src="https://nzbirdsonline.org.nz/sites/all/files/2X2A1697%20King%20Penguin%20bol.jpg" alt="Pinguïn" id="pinguin">
+    </main>
+
+    
+
+    <script>
+        
+        document.querySelectorAll('nav a, footer a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelectorAll('img').forEach(img => {
+                    img.style.display = 'none';
+                });
+
+                const targetId = this.getAttribute('href').substring(1); 
+                
+                document.getElementById(targetId).style.display = 'block';
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
